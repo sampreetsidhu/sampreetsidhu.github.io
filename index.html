@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sampreet Singh Sidhu — Planning Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0a1628;
+  --navy-mid: #112240;
+  --navy-light: #1d3461;
+  --blue: #1a56db;
+  --blue-light: #3b82f6;
+  --sky: #e8f0fe;
+  --sky-dark: #c7d9fd;
+  --white: #ffffff;
+  --off-white: #f8faff;
+  --ink: #0f172a;
+  --grey: #64748b;
+  --line: #e2e8f0;
+  --gold: #d4a017;
+  --gold-light: #f0c040;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background: var(--off-white);
+  color: var(--ink);
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(10, 22, 40, 0.97);
+  backdrop-filter: blur(16px);
+  padding: 0 56px;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 64px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.nav-name {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 1.05rem; font-weight: 700;
+  color: var(--white); letter-spacing: 0.3px;
+}
+
+.nav-links { display: flex; gap: 36px; list-style: none; }
+.nav-links a {
+  font-size: 0.75rem; font-weight: 600;
+  color: rgba(255,255,255,0.55);
+  text-decoration: none; letter-spacing: 1.8px; text-transform: uppercase;
+  transition: color 0.2s;
+  position: relative;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute; bottom: -4px; left: 0; right: 0; height: 1px;
+  background: var(--blue-light); transform: scaleX(0);
+  transition: transform 0.2s;
+}
+.nav-links a:hover { color: var(--white); }
+.nav-links a:hover::after { transform: scaleX(1); }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  background: var(--navy);
+  display: grid; grid-template-columns: 1.1fr 0.9fr;
+  padding-top: 64px;
+  position: relative; overflow: hidden;
+}
+
+.hero-bg-pattern {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(26,86,219,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26,86,219,0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.hero-glow {
+  position: absolute; top: -200px; right: -200px;
+  width: 700px; height: 700px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(26,86,219,0.18) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.hero-glow-2 {
+  position: absolute; bottom: -150px; left: 20%;
+  width: 500px; height: 500px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(212,160,23,0.08) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.hero-left {
+  padding: 80px 64px 80px 80px;
+  position: relative; z-index: 2;
+  display: flex; flex-direction: column; justify-content: center;
+}
+
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 0.7rem; font-weight: 700;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: var(--blue-light); margin-bottom: 24px;
+}
+
+.hero-eyebrow::before {
+  content: '';
+  width: 32px; height: 2px; background: var(--blue-light);
+}
+
+.hero-name {
+  font-family: 'Libre Baskerville', serif;
+  font-size: clamp(2.8rem, 5.5vw, 5rem);
+  font-weight: 700; line-height: 1.05;
+  color: var(--white); margin-bottom: 8px;
+  letter-spacing: -0.5px;
+}
+
+.hero-name span {
+  color: var(--white);
+  -webkit-text-stroke: 0;
+}
+
+.hero-credential {
+  font-size: 0.85rem; font-weight: 500;
+  color: var(--sky-dark); margin-bottom: 28px;
+  letter-spacing: 0.3px; line-height: 1.7;
+}
+
+.hero-divider {
+  width: 48px; height: 3px;
+  background: linear-gradient(90deg, var(--blue), var(--gold));
+  margin-bottom: 28px; border-radius: 2px;
+}
+
+.hero-intro {
+  font-size: 1rem; font-weight: 300;
+  color: rgba(255,255,255,0.6); line-height: 1.8;
+  margin-bottom: 40px; max-width: 480px;
+}
+
+.hero-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 44px; }
+.hero-tag {
+  padding: 7px 15px;
+  background: rgba(26,86,219,0.2);
+  border: 1px solid rgba(26,86,219,0.4);
+  color: var(--sky-dark);
+  font-size: 0.72rem; font-weight: 600;
+  letter-spacing: 0.8px;
+  border-radius: 3px;
+  transition: background 0.2s;
+}
+.hero-tag:hover { background: rgba(26,86,219,0.35); }
+
+.hero-cta { display: flex; gap: 14px; }
+
+.btn-primary {
+  padding: 14px 32px;
+  background: var(--blue);
+  color: var(--white); font-size: 0.8rem; font-weight: 700;
+  letter-spacing: 1.2px; text-transform: uppercase;
+  text-decoration: none; border-radius: 3px;
+  transition: background 0.2s, transform 0.15s;
+  border: 2px solid var(--blue);
+}
+.btn-primary:hover { background: var(--blue-light); border-color: var(--blue-light); transform: translateY(-2px); }
+
+.btn-outline {
+  padding: 14px 32px;
+  border: 2px solid rgba(255,255,255,0.25);
+  color: rgba(255,255,255,0.8);
+  font-size: 0.8rem; font-weight: 600;
+  letter-spacing: 1.2px; text-transform: uppercase;
+  text-decoration: none; border-radius: 3px;
+  transition: border-color 0.2s, color 0.2s;
+}
+.btn-outline:hover { border-color: rgba(255,255,255,0.7); color: var(--white); }
+
+/* HERO RIGHT */
+.hero-right {
+  background: var(--navy-mid);
+  border-left: 1px solid rgba(255,255,255,0.06);
+  position: relative; z-index: 2;
+  display: flex; flex-direction: column;
+  justify-content: center; padding: 80px 56px;
+}
+
+.stats-label {
+  font-size: 0.68rem; font-weight: 700;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: var(--blue-light); margin-bottom: 36px;
+}
+
+.stat-row {
+  padding: 22px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  display: grid; grid-template-columns: 80px 1fr; gap: 20px; align-items: center;
+}
+.stat-row:first-of-type { border-top: 1px solid rgba(255,255,255,0.06); }
+
+.stat-num {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 2.6rem; font-weight: 700;
+  color: var(--white); line-height: 1;
+}
+
+.stat-num sup {
+  font-size: 1.2rem; color: var(--blue-light);
+}
+
+.stat-text { font-size: 0.82rem; color: rgba(255,255,255,0.5); line-height: 1.5; font-weight: 300; }
+
+.contact-block {
+  margin-top: 40px; padding-top: 32px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  display: flex; flex-direction: column; gap: 12px;
+}
+
+.contact-item {
+  display: flex; align-items: center; gap: 12px;
+  font-size: 0.82rem; color: rgba(255,255,255,0.55);
+}
+
+.contact-item a { color: rgba(255,255,255,0.55); text-decoration: none; transition: color 0.2s; }
+.contact-item a:hover { color: var(--blue-light); }
+
+.contact-icon {
+  width: 28px; height: 28px;
+  background: rgba(26,86,219,0.2);
+  border-radius: 4px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.75rem; flex-shrink: 0;
+}
+
+/* ── SECTIONS ── */
+.section { padding: 100px 80px; }
+.section-alt { background: var(--navy); }
+
+.section-eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 0.68rem; font-weight: 700;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: var(--blue); margin-bottom: 12px;
+}
+.section-eyebrow::before {
+  content: ''; width: 24px; height: 2px; background: var(--blue);
+}
+
+.section-alt .section-eyebrow { color: var(--blue-light); }
+.section-alt .section-eyebrow::before { background: var(--blue-light); }
+
+.section-title {
+  font-family: 'Libre Baskerville', serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 700; color: var(--navy);
+  margin-bottom: 56px; line-height: 1.15;
+  letter-spacing: -0.3px;
+}
+
+.section-alt .section-title { color: var(--white); }
+
+/* ── ABOUT ── */
+.about-grid {
+  display: grid; grid-template-columns: 1.3fr 1fr; gap: 72px; align-items: start;
+}
+
+.about-text p {
+  font-size: 1rem; line-height: 1.85;
+  color: #334155; margin-bottom: 20px; font-weight: 400;
+}
+
+.about-text strong { font-weight: 700; color: var(--navy); }
+
+/* SKILLS — HIGH CONTRAST */
+.skills-block { display: flex; flex-direction: column; gap: 28px; }
+
+.skill-group { }
+
+.skill-group-title {
+  font-size: 0.68rem; font-weight: 700;
+  letter-spacing: 2.5px; text-transform: uppercase;
+  color: var(--blue); margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--sky-dark);
+}
+
+.skill-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.skill-pill {
+  padding: 8px 16px;
+  background: var(--navy);
+  color: var(--white);
+  font-size: 0.78rem; font-weight: 600;
+  border-radius: 3px;
+  border: none;
+  letter-spacing: 0.2px;
+}
+
+.skill-pill.tool {
+  background: var(--blue);
+  color: var(--white);
+}
+
+.skill-pill.law {
+  background: var(--off-white);
+  color: var(--navy);
+  border: 2px solid var(--navy);
+  font-weight: 700;
+}
+
+/* ── EXPERIENCE ── */
+.exp-list { display: flex; flex-direction: column; gap: 3px; }
+
+.exp-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--line);
+  padding: 36px 40px;
+  transition: border-left-color 0.25s, box-shadow 0.25s;
+}
+
+.exp-card:hover {
+  border-left-color: var(--blue);
+  box-shadow: 0 8px 32px rgba(10,22,40,0.1);
+}
+
+.exp-top {
+  display: flex; justify-content: space-between;
+  align-items: flex-start; margin-bottom: 4px;
+}
+
+.exp-org {
+  font-size: 0.7rem; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--blue);
+}
+
+.exp-date {
+  font-size: 0.78rem; color: var(--grey);
+  font-weight: 600;
+  background: var(--sky);
+  padding: 4px 12px; border-radius: 20px;
+  white-space: nowrap;
+}
+
+.exp-title {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 1.35rem; font-weight: 700;
+  color: var(--navy); margin-bottom: 20px; line-height: 1.25;
+}
+
+.exp-body {
+  display: grid; grid-template-columns: 1.2fr 1fr; gap: 36px;
+}
+
+.exp-desc {
+  font-size: 0.9rem; line-height: 1.8;
+  color: #475569; font-weight: 400;
+}
+
+.exp-bullets-title {
+  font-size: 0.67rem; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--blue); margin-bottom: 12px;
+}
+
+.exp-bullet {
+  display: flex; gap: 10px; align-items: flex-start;
+  margin-bottom: 9px;
+}
+
+.b-dot {
+  width: 6px; height: 6px; min-width: 6px;
+  background: var(--blue); border-radius: 50%;
+  margin-top: 6px;
+}
+
+.exp-bullet span { font-size: 0.85rem; color: var(--ink); line-height: 1.55; font-weight: 400; }
+
+/* ── EDUCATION ── */
+.edu-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+}
+
+.edu-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  padding: 32px 28px;
+  position: relative; overflow: hidden;
+  transition: box-shadow 0.2s;
+}
+
+.edu-card:hover { box-shadow: 0 4px 20px rgba(10,22,40,0.08); }
+
+.edu-card::after {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--blue), var(--blue-light));
+}
+
+.edu-year {
+  font-size: 0.7rem; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--blue); margin-bottom: 10px;
+}
+
+.edu-degree {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 1.1rem; font-weight: 700;
+  color: var(--navy); margin-bottom: 6px; line-height: 1.3;
+}
+
+.edu-school {
+  font-size: 0.85rem; color: var(--grey);
+  margin-bottom: 10px; font-weight: 400;
+}
+
+.edu-note {
+  font-size: 0.82rem; font-weight: 700;
+  color: var(--gold);
+  display: flex; align-items: center; gap: 6px;
+}
+
+.edu-sub {
+  font-size: 0.8rem; color: var(--grey); line-height: 1.6;
+}
+
+/* ── RECOGNITION ── */
+.rec-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+}
+
+.rec-card {
+  background: var(--navy-mid);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 36px 28px;
+  position: relative; overflow: hidden;
+  transition: transform 0.2s;
+}
+
+.rec-card:hover { transform: translateY(-4px); }
+
+.rec-card::before {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--blue), var(--blue-light));
+}
+
+.rec-num {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 3rem; font-weight: 700;
+  color: rgba(26,86,219,0.25);
+  position: absolute; top: 16px; right: 20px;
+  line-height: 1;
+}
+
+.rec-icon { font-size: 1.6rem; margin-bottom: 16px; }
+
+.rec-title {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 1rem; font-weight: 700;
+  color: var(--white); margin-bottom: 12px; line-height: 1.35;
+}
+
+.rec-desc {
+  font-size: 0.82rem; color: rgba(255,255,255,0.55);
+  line-height: 1.7; font-weight: 300;
+}
+
+/* ── CONTACT ── */
+.contact-section {
+  background: var(--navy);
+  padding: 100px 80px;
+  text-align: center;
+}
+
+.contact-intro {
+  font-size: 1rem; color: rgba(255,255,255,0.55);
+  margin-bottom: 56px; font-weight: 300; max-width: 520px;
+  margin-left: auto; margin-right: auto; line-height: 1.8;
+}
+
+.contact-grid {
+  display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;
+  margin-bottom: 48px;
+}
+
+.contact-card {
+  background: var(--navy-mid);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 28px 36px; border-radius: 4px; min-width: 200px;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.contact-card:hover {
+  border-color: var(--blue-light);
+  transform: translateY(-3px);
+}
+
+.cc-label {
+  font-size: 0.67rem; font-weight: 700;
+  letter-spacing: 2.5px; text-transform: uppercase;
+  color: var(--blue-light); margin-bottom: 10px;
+}
+
+.cc-value {
+  font-size: 0.9rem; color: var(--white); font-weight: 500;
+}
+
+.cc-value a { color: var(--white); text-decoration: none; }
+.cc-value a:hover { color: var(--blue-light); }
+
+.availability-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(26,86,219,0.2);
+  border: 1px solid rgba(26,86,219,0.4);
+  color: var(--sky-dark);
+  padding: 10px 24px; border-radius: 40px;
+  font-size: 0.8rem; font-weight: 600;
+}
+
+.avail-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 0 3px rgba(34,197,94,0.25);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 3px rgba(34,197,94,0.25); }
+  50% { box-shadow: 0 0 0 6px rgba(34,197,94,0.1); }
+}
+
+/* ── FOOTER ── */
+footer {
+  background: #050d1a;
+  padding: 24px 80px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+footer p { font-size: 0.75rem; color: rgba(255,255,255,0.25); }
+
+/* ── ANIMATIONS ── */
+.fade-up {
+  opacity: 0; transform: translateY(28px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+
+.fade-up:nth-child(2) { transition-delay: 0.1s; }
+.fade-up:nth-child(3) { transition-delay: 0.2s; }
+.fade-up:nth-child(4) { transition-delay: 0.3s; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 960px) {
+  nav { padding: 0 24px; }
+  .nav-links { display: none; }
+  .hero { grid-template-columns: 1fr; }
+  .hero-right { display: none; }
+  .hero-left { padding: 60px 32px; }
+  .section { padding: 64px 32px; }
+  .about-grid { grid-template-columns: 1fr; gap: 40px; }
+  .exp-body { grid-template-columns: 1fr; gap: 20px; }
+  .edu-grid { grid-template-columns: 1fr; }
+  .rec-grid { grid-template-columns: 1fr; }
+  .contact-section { padding: 64px 32px; }
+  footer { padding: 20px 32px; flex-direction: column; gap: 6px; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-name">Sampreet Singh Sidhu</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#recognition">Recognition</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg-pattern"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-glow-2"></div>
+
+  <div class="hero-left">
+    <div class="hero-eyebrow">Planning Portfolio · 2026</div>
+    <h1 class="hero-name">Sampreet<br>Singh <span>Sidhu</span></h1>
+    <p class="hero-credential">MCP · Candidate Member, PIBC & CIP · BC-Based Planner</p>
+    <div class="hero-divider"></div>
+    <p class="hero-intro">Municipal planning professional with hands-on experience in development application processing, zoning analysis, staff report writing, and public engagement across BC local government and consulting.</p>
+    <div class="hero-tags">
+      <span class="hero-tag">Current Planning</span>
+      <span class="hero-tag">Zoning & OCP Analysis</span>
+      <span class="hero-tag">GIS Mapping</span>
+      <span class="hero-tag">Staff Reports</span>
+      <span class="hero-tag">Development Applications</span>
+      <span class="hero-tag">Public Engagement</span>
+      <span class="hero-tag">Bylaw Amendments</span>
+    </div>
+    <div class="hero-cta">
+      <a href="#experience" class="btn-primary">View Experience</a>
+      <a href="#contact" class="btn-outline">Get In Touch</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="stats-label">At a Glance</div>
+
+    <div class="stat-row">
+      <div class="stat-num">6<sup>+</sup></div>
+      <div class="stat-text">Months of municipal planning experience in BC local government</div>
+    </div>
+    <div class="stat-row">
+      <div class="stat-num">100<sup>+</sup></div>
+      <div class="stat-text">Stakeholders engaged through public consultation processes</div>
+    </div>
+    <div class="stat-row">
+      <div class="stat-num">4</div>
+      <div class="stat-text">Planning roles across municipal, consulting & research settings</div>
+    </div>
+    <div class="stat-row">
+      <div class="stat-num">2<sup>×</sup></div>
+      <div class="stat-text">VIU Dean's Honour List — 2023–24 & 2024–25</div>
+    </div>
+
+    <div class="contact-block">
+      <div class="contact-item">
+        <div class="contact-icon">📍</div>
+        <span>British Columbia, Canada</span>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">📞</div>
+        <a href="tel:7782686464">778-268-6464</a>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">✉️</div>
+        <a href="mailto:sampreetsidhu@gmail.com">sampreetsidhu@gmail.com</a>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">🔗</div>
+        <a href="https://linkedin.com/in/sampreetssidhu" target="_blank">linkedin.com/in/sampreetssidhu</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div class="section" id="about">
+  <div class="section-eyebrow">Who I Am</div>
+  <h2 class="section-title">BC-Based Municipal Planner<br>Ready for Consulting</h2>
+  <div class="about-grid">
+    <div class="about-text fade-up">
+      <p>I am a <strong>BC-based municipal planning professional</strong> with hands-on experience processing development applications, interpreting zoning and OCP policies, and supporting land use decision-making within BC local government.</p>
+      <p>Most recently as a <strong>Planning Technician at the Town of Ladysmith</strong>, I managed the full lifecycle of Development Permits, DVPs, and rezoning applications — from intake through referrals, staff reports, and Council presentations. I also managed Business Licences, Sign Permits, and Building Permit referrals.</p>
+      <p>Prior to Ladysmith, I worked as a <strong>Planning Consultant in Nanaimo</strong> on Airport Master Plans and housing-focused Area Structure Plans, gaining broad exposure to policy analysis, bylaw amendments, and public engagement across Vancouver Island.</p>
+      <p>I hold a <strong>Master of Community Planning from VIU</strong>, am a Candidate Member of PIBC and CIP, and communicate fluently in <strong>English, Punjabi, and Hindi</strong> — an asset in diverse community engagement contexts.</p>
+    </div>
+
+    <div class="skills-block fade-up">
+      <div class="skill-group">
+        <div class="skill-group-title">Planning Skills</div>
+        <div class="skill-pills">
+          <span class="skill-pill">Development Permits</span>
+          <span class="skill-pill">DVP Processing</span>
+          <span class="skill-pill">Rezoning Applications</span>
+          <span class="skill-pill">Staff Reports</span>
+          <span class="skill-pill">OCP Policy Analysis</span>
+          <span class="skill-pill">Zoning Bylaw Interpretation</span>
+          <span class="skill-pill">CPAC Referrals</span>
+          <span class="skill-pill">Bylaw Amendments</span>
+          <span class="skill-pill">Public Engagement</span>
+          <span class="skill-pill">Housing Strategy</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Technical Tools</div>
+        <div class="skill-pills">
+          <span class="skill-pill tool">ArcGIS (Level 1 & 2)</span>
+          <span class="skill-pill tool">Adobe Suite</span>
+          <span class="skill-pill tool">Bluebeam</span>
+          <span class="skill-pill tool">Microsoft Office</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Legislation & Frameworks</div>
+        <div class="skill-pills">
+          <span class="skill-pill law">Local Government Act</span>
+          <span class="skill-pill law">Land Title Act</span>
+          <span class="skill-pill law">BC Planning Legislation</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EXPERIENCE -->
+<div class="section" style="background: var(--off-white); padding-top: 100px; padding-bottom: 100px;" id="experience">
+  <div class="section-eyebrow">What I've Done</div>
+  <h2 class="section-title">Planning Experience</h2>
+  <div class="exp-list">
+
+    <div class="exp-card fade-up">
+      <div class="exp-top">
+        <div class="exp-org">Town of Ladysmith</div>
+        <div class="exp-date">Oct 2024 – May 2025</div>
+      </div>
+      <div class="exp-title">Planning Technician</div>
+      <div class="exp-body">
+        <div class="exp-desc">Responsible for end-to-end processing of Development Permits, DVPs, and Rezoning Applications from intake through Council. Coordinated all interdepartmental, external agency, and CPAC referrals ensuring compliance with Zoning Bylaw, OCP policies, and the Local Government Act. Managed Business Licences, Sign Permits, Building Permit referrals, and assisted with bylaw amendments and planning guide updates.</div>
+        <div>
+          <div class="exp-bullets-title">Key Contributions</div>
+          <div class="exp-bullet"><div class="b-dot"></div><span>Led DP, DVP & rezoning files through Council with full compliance</span></div>
+          <div class="exp-bullet"><div class="b-dot"></div><span>Prepared GIS maps & staff reports presented directly to Council</span></div>
+          <div class="exp-bullet"><div class="b-dot"></div><span>Coordinated CPAC, interagency & interdepartmental referrals</span></div>
+          <div class="exp-bullet"><div class="b-dot"></div><span>Managed public & developer inquiries on zoning & development processes</span></div>
+          <div class="exp-bullet"><div class="b-dot"></div><span>Assisted with procedures updates & bylaw amendments</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-card fade-up">
+      <div class="exp-top">
+        <div class="exp-org">Patricia Maloney Consulting · Nanaimo</div>
+        <div class="exp-date">Apr 2024 – Feb 2026</div>
+      </div>
+      <div class="exp-title">Planning Consultant (Casual/Part-Time)</div>
+      <div class="exp-body">
+        <div class="exp-desc">Provided land use and policy analysis support for Airport Master Plans and housing-focused Area Structure Plans. Reviewed zoning bylaws, subdivision layouts, and housing data to recommend amendments aligned with long-term housing objectives. Conducted stakeholder and public engagement, synthesizing input from over 100 participants into actionable policy recommendations.</div>
+        <div>
+          <div class="exp-bullets-title">Key Contributions</div>
+          <div class="exp-bullet"><div class="b-dot"></div><span>Synthesized 100+ stakeholder responses into "What We Heard" report</span></div>
+          <div class="exp-bullet"><div class="b-dot"></div><span>Recommended zoning bylaw amendments for housing growth objectives</span></div>
+          <div class="exp-bullet"><div class="b-dot"></div><span>Supported Airport Master Plan land use & zoning analysis</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-card fade-up">
+      <div class="exp-top">
+        <div class="exp-org">IPSOS & City of Campbell River</div>
+        <div class="exp-date">Jul – Dec 2024</div>
+      </div>
+      <div class="exp-title">Student Airport Planner</div>
+      <div class="exp-body">
+        <div class="exp-desc">Facilitated a World Café style public engagement workshop with 50+ participants including City staff, airport tenants, and First Nations representatives. Prepared meeting summaries and contributed to strategic recommendations for the Airport Strategic Plan presented to City Council.</div>
+        <div>
+          <div class="exp-bullets-title">Key Contributions</div>
+          <div class="exp-bullet"><div class="b-dot"></div><span>Facilitated 50+ participant multi-stakeholder engagement workshop</span></div>
+          <div class="exp-bullet"><div class="b-dot"></div><span>Contributed strategic recommendations presented to City Council</span></div>
+          <div class="exp-bullet"><div class="b-dot"></div><span>Authored meeting summaries & engagement documentation</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-card fade-up">
+      <div class="exp-top">
+        <div class="exp-org">Mount Arrowsmith Biosphere Region Research Institute</div>
+        <div class="exp-date">Jan – Aug 2024</div>
+      </div>
+      <div class="exp-title">Planning Assistant</div>
+      <div class="exp-body">
+        <div class="exp-desc">Researched and compared OCP policies of peer municipalities to recommend updates for Port Alberni's OCP. Developed housing strategy reports for First Nations community planning projects ensuring culturally appropriate development approaches. Facilitated resident surveys and stakeholder workshops to inform land-use planning.</div>
+        <div>
+          <div class="exp-bullets-title">Key Contributions</div>
+          <div class="exp-bullet"><div class="b-dot"></div><span>Benchmarked OCP policies across comparable municipalities</span></div>
+          <div class="exp-bullet"><div class="b-dot"></div><span>Authored First Nations housing strategy reports</span></div>
+          <div class="exp-bullet"><div class="b-dot"></div><span>Facilitated community surveys & stakeholder workshops</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- EDUCATION -->
+<div class="section" id="education">
+  <div class="section-eyebrow">Academic Background</div>
+  <h2 class="section-title">Education &<br>Certifications</h2>
+  <div class="edu-grid">
+    <div class="edu-card fade-up">
+      <div class="edu-year">2023 – 2025</div>
+      <div class="edu-degree">Master of Community Planning (MCP)</div>
+      <div class="edu-school">Vancouver Island University · Nanaimo, BC</div>
+      <div class="edu-note">🏆 Dean's Honour List — 2023–24 & 2024–25</div>
+    </div>
+    <div class="edu-card fade-up">
+      <div class="edu-year">2024 – 2025</div>
+      <div class="edu-degree">Urban & Regional Planning Certificate</div>
+      <div class="edu-school">Vancouver Island University · Nanaimo, BC</div>
+      <div class="edu-sub">Graphics in Urban Design · Wayfinding & Placemaking · Affordable Housing Planning & Design</div>
+    </div>
+    <div class="edu-card fade-up">
+      <div class="edu-year">2025</div>
+      <div class="edu-degree">GIS Level 1 & 2 Certificate</div>
+      <div class="edu-school">Vancouver Island University · Nanaimo, BC</div>
+    </div>
+    <div class="edu-card fade-up">
+      <div class="edu-year">2018 – 2021</div>
+      <div class="edu-degree">BSc Aviation Management</div>
+      <div class="edu-school">Chandigarh University · Mohali, India</div>
+    </div>
+  </div>
+</div>
+
+<!-- RECOGNITION -->
+<div class="section section-alt" id="recognition">
+  <div class="section-eyebrow">Achievements</div>
+  <h2 class="section-title">Recognition</h2>
+  <div class="rec-grid">
+    <div class="rec-card fade-up">
+      <div class="rec-num">01</div>
+      <div class="rec-icon">🏆</div>
+      <div class="rec-title">VIU Dean's Honour List — Two Consecutive Years</div>
+      <div class="rec-desc">Awarded for high academic standing in the Master of Community Planning program at Vancouver Island University, 2023–24 and 2024–25.</div>
+    </div>
+    <div class="rec-card fade-up">
+      <div class="rec-num">02</div>
+      <div class="rec-icon">📰</div>
+      <div class="rec-title">CBC News Feature — Published Planning Article</div>
+      <div class="rec-desc">Published "Roundabouts Can Prove to Be a Circular Solution" in the Nanaimo News Bulletin (March 2024). Featured by CBC News and led to a live interview on translating planning concepts for public audiences.</div>
+    </div>
+    <div class="rec-card fade-up">
+      <div class="rec-num">03</div>
+      <div class="rec-icon">🏛</div>
+      <div class="rec-title">Candidate Member — PIBC & CIP</div>
+      <div class="rec-desc">Planning Institute of British Columbia and Canadian Institute of Planners. Actively progressing toward full RPP designation.</div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="contact-section" id="contact">
+  <div class="section-eyebrow" style="justify-content:center;">Let's Connect</div>
+  <h2 class="section-title" style="margin-bottom:16px;">Available for Planning<br>Opportunities Across BC</h2>
+  <p class="contact-intro">Open to contract, consulting, and full-time planning roles across Vancouver Island and the Lower Mainland.</p>
+  <div style="margin-bottom: 40px;">
+    <span class="availability-badge"><span class="avail-dot"></span> Available for new opportunities</span>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-card">
+      <div class="cc-label">Phone</div>
+      <div class="cc-value"><a href="tel:7782686464">778-268-6464</a></div>
+    </div>
+    <div class="contact-card">
+      <div class="cc-label">Email</div>
+      <div class="cc-value"><a href="mailto:sampreetsidhu@gmail.com">sampreetsidhu@gmail.com</a></div>
+    </div>
+    <div class="contact-card">
+      <div class="cc-label">LinkedIn</div>
+      <div class="cc-value"><a href="https://linkedin.com/in/sampreetssidhu" target="_blank">sampreetssidhu</a></div>
+    </div>
+    <div class="contact-card">
+      <div class="cc-label">Documents</div>
+      <div class="cc-value"><a href="https://drive.google.com/drive/folders/14XaQdcXNJ2s1hREEPdOVMrZQaWSQDpSQ?usp=sharing" target="_blank">Resume & Portfolio</a></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 Sampreet Singh Sidhu · MCP, Candidate Member PIBC & CIP</p>
+  <p>British Columbia, Canada</p>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
